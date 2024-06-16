@@ -39,10 +39,6 @@ Women Safety Platform is an AI-driven application designed to enhance the safety
    git clone https://github.com/yourusername/women-safety-platform.git
    cd women-safety-platform
 
-2. **Setup Frontend**
- cd frontend
-    npm install
-  npm start
 
 
 
