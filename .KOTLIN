@@ -1,0 +1,68 @@
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
+import android.widget.Toast
+import android.content.Intent
+ 
+
+class MainActivity : AppCompatActivity() {
+    private val LOCATION_PERMISSION_REQUEST = 1
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Request location permission
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                LOCATION_PERMISSION_REQUEST
+            )
+        }
+
+        // Set up emergency button
+        val emergencyButton: Button = findViewById(R.id.emergencyButton)
+        emergencyButton.setOnClickListener {
+            sendEmergencyAlert()
+        }
+    }
+
+    // Function to send emergency alert
+    private fun sendEmergencyAlert() {
+        // Replace with actual emergency alert logic (e.g., sending SMS, calling emergency contacts)
+        Toast.makeText(this, "Emergency Alert Sent!", Toast.LENGTH_SHORT).show()
+    }
+
+    // Handle permission request results
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            LOCATION_PERMISSION_REQUEST -> {
+                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    // Permission granted, continue with app functionality
+                } else {
+                    // Permission denied, handle accordingly
+                    Toast.makeText(
+                        this,
+                        "Location permission denied. Some features may not work.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                return
+            }
+        }
+    }
+}
