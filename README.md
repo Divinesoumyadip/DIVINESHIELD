@@ -40,3 +40,58 @@ Women Safety Platform is an AI-driven application designed to enhance the safety
    git clone https://github.com/Divinesoumyadip/women-safety-platform.git
    cd women-safety-platform
 
+
+   Setup Frontend
+
+bash
+
+cd frontend
+npm install
+npm start
+Setup Backend
+
+bash
+
+cd ../backend
+npm install
+npm start
+Setup Machine Learning Service
+
+bash
+Copy code
+cd ../ml
+pip install -r requirements.txt
+python app.py
+Run with Docker
+
+bash
+
+cd ..
+docker-compose up
+Usage
+Visit http://localhost:3000 to access the frontend.
+Backend API is available at http://localhost:5000.
+Machine Learning API is available at http://localhost:5001.
+Contributing
+We welcome contributions! Please read our Contributing Guidelines for more information.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Contact
+If you have any questions or feedback, please feel free to contact us at contact@example.com.
+
+Women Safety Platform - Enhancing safety and security through technology.
+
+css
+
+
+### Uploading the README to GitHub
+
+1. Save the above content in a file named `README.md` in the root of your project directory.
+2. Commit and push the file to your GitHub repository.
+   ```bash
+   git add README.md
+   git commit -m "Add project description and launch date"
+   git push origin main
+
