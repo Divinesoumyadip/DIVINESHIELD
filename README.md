@@ -1,6 +1,6 @@
 # Women Safety Platform
 
-![Women Safety Platform](https://example.com/your-logo.png)
+
 
 ## Description
 
